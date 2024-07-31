@@ -8,7 +8,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setWishList } from "../redux/state";
-
+import {getListItem} from
 const ListingCard = ({
   listingId,
   creator,
@@ -43,7 +43,7 @@ const ListingCard = ({
 
   /* ADD TO WISHLIST */
   const user = useSelector((state) => state.user);
-  const wishList = user?.wishList || [];
+  const wishList = user?.wishList || [getListItem];
 
   const isLiked = wishList?.find((item) => item?._id === listingId);
 
