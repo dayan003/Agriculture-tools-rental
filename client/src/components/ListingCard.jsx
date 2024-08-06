@@ -43,7 +43,7 @@ const ListingCard = ({
 
   /* ADD TO WISHLIST */
   const user = useSelector((state) => state.user);
-  const wishList = user?.wishList || [getListItem];
+  const wishList = user?.wishList || [];
 
   const isLiked = wishList?.find((item) => item?._id === listingId);
 
@@ -51,7 +51,7 @@ const ListingCard = ({
     console.log("jiii");
     console.log(user?._id);
     console.log(creator._id);
-    if (user?._id == creator._id) {
+    if (user?._id === creator._id) {
       const response = await fetch(
         `http://localhost:3001/users/${user?._id}/${listingId}`,
         {
